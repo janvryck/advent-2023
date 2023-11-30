@@ -1,4 +1,4 @@
-# Advent of Code 2022
+# Advent of Code 2023
 
 ![aoc-workflow](https://github.com/janvryck/advent-2023/actions/workflows/main.yml/badge.svg)
 
