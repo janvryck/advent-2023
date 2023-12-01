@@ -29,7 +29,13 @@ class Day01 : Day(1) {
 
     override fun partTwo() = mapToNumbers(numericals)
 
-    private fun mapToNumbers(numericalMapping: Map<String, String>) = inputList.map {
-            numericalMapping[it.findAnyOf(numericalMapping.keys)!!.second] + numericalMapping[it.findLastAnyOf(numericalMapping.keys)!!.second]
-        }.sumOf { it.toInt() }
+    private fun mapToNumbers(numericalMapping: Map<String, String>) = inputList
+        .map { "${it.firstValueFrom(numericalMapping)}${it.lastValueFrom(numericalMapping)}" }
+        .sumOf { it.toInt() }
+
+    private fun String.lastValueFrom(numericalMapping: Map<String, String>) =
+        numericalMapping[findLastAnyOf(numericalMapping.keys)!!.second]
+
+    private fun String.firstValueFrom(numericalMapping: Map<String, String>) =
+        numericalMapping[findAnyOf(numericalMapping.keys)!!.second]
 }
