@@ -43,12 +43,14 @@ data class Game(
 
         private fun String.extractRounds() = substringAfter(":")
             .split(";")
-            .map {
-                it.split(", ")
-            }
+            .map { it.split(", ") }
 
-        private fun List<String>.extractValueFor(color: String) =
-            filter { it.contains(color) }.map { it.trim().substringBefore(" ") }.map { it.toInt() }.firstOrNull() ?: 0
+        private fun List<String>.extractValueFor(
+            color: String
+        ) = filter { it.contains(color) }
+            .map { it.trim().substringBefore(" ") }
+            .map { it.toInt() }
+            .firstOrNull() ?: 0
     }
 
     fun power() = rounds.maxOf(GameRound::red) * rounds.maxOf(GameRound::green) * rounds.maxOf(GameRound::blue)
