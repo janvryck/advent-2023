@@ -27,7 +27,7 @@ data class Point(
     companion object {
         fun parse(point: String) = point.split(",").map { it.toInt() }.let { (x, y) -> Point(x, y) }
 
-        fun Pair<Point, Point>.expand() = if (first.x == second.x) {
+        fun Pair<Point, Point>.expandLine() = if (first.x == second.x) {
             (minOf(first.y, second.y)..maxOf(first.y, second.y)).map { Point(first.x, it) }
         } else {
             (minOf(first.x, second.x)..maxOf(first.x, second.x)).map { Point(it, first.y) }
