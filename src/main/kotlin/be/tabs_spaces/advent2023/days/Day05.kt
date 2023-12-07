@@ -5,7 +5,11 @@ class Day05 : Day(5) {
     override fun partOne() = Almanac(inputString).lowestSeedLocation()
 
     override fun partTwo() = Any()
-        //  Runs for 3+ min, setting this in comment: Almanac(inputString, seedRanges = true).lowestSeedLocation()
+        /*
+          Runs for 3+ min, setting this in comment: Almanac(inputString, seedRanges = true).lowestSeedLocation()
+
+          Potential fix: reduce the ranges from back to front to end up with a single mapping from seed to location.
+         */
 
     class Almanac(
         rawAlmanac: String,
